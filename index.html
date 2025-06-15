@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Father&#39;s Day</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #87CEEB 0%, #FFA500 70%, #FF6347 100%);
+        }
+
+        .sun {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #FFD700 30%, #FFA500 70%);
+            border-radius: 50%;
+            animation: sun-glow 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .sun::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 160px;
+            height: 160px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            border-top: 3px solid rgba(255, 215, 0, 0.3);
+            border-right: 3px solid rgba(255, 215, 0, 0.3);
+            animation: rotate 10s linear infinite;
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #228B22 0%, #32CD32 100%);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .family-silhouette {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .father {
+            width: 80px;
+            height: 160px;
+            background: #2C3E50;
+            position: relative;
+            border-radius: 40px 40px 0 0;
+            animation: gentle-sway 4s ease-in-out infinite;
+        }
+
+        .father::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            background: #2C3E50;
+            border-radius: 50%;
+        }
+
+        .father::after {
+            content: '';
+            position: absolute;
+            top: 120px;
+            left: -10px;
+            width: 30px;
+            height: 70px;
+            background: #2C3E50;
+            border-radius: 15px;
+            transform: rotate(-20deg);
+        }
+
+        .child {
+            width: 50px;
+            height: 100px;
+            background: #34495E;
+            position: relative;
+            border-radius: 25px 25px 0 0;
+            animation: child-bounce 3s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .child::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            background: #34495E;
+            border-radius: 50%;
+        }
+
+        .child::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: -8px;
+            width: 20px;
+            height: 45px;
+            background: #34495E;
+            border-radius: 10px;
+            transform: rotate(30deg);
+        }
+
+        .hearts {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #FF69B4;
+            transform: rotate(45deg);
+            animation: float-heart 5s ease-in-out infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #FF69B4;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        .heart:nth-child(1) { left: -50px; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 0px; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50px; animation-delay: 2s; }
+
+        .message {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            font-family: 'Georgia', serif;
+            animation: message-glow 2s ease-in-out infinite alternate;
+        }
+
+        .sub-message {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Georgia', serif;
+        }
+
+        .birds {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+        }
+
+        .bird {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #2C3E50;
+            border-radius: 50%;
+            animation: fly 8s linear infinite;
+        }
+
+        .bird::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -8px;
+            width: 15px;
+            height: 2px;
+            background: #2C3E50;
+            border-radius: 2px;
+            transform: rotate(-30deg);
+        }
+
+        .bird::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -8px;
+            width: 15px;
+            height: 2px;
+            background: #2C3E50;
+            border-radius: 2px;
+            transform: rotate(30deg);
+        }
+
+        .bird:nth-child(1) { animation-delay: 0s; }
+        .bird:nth-child(2) { left: 30px; animation-delay: 1s; }
+        .bird:nth-child(3) { left: 60px; animation-delay: 2s; }
+
+        .clouds {
+            position: absolute;
+            top: 15%;
+            left: 10%;
+        }
+
+        .cloud {
+            position: relative;
+            width: 80px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 40px;
+            animation: drift 15s linear infinite;
+        }
+
+        .cloud::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+        }
+
+        .cloud:nth-child(2) {
+            left: 200px;
+            animation-delay: -5s;
+        }
+
+        .cloud:nth-child(3) {
+            left: 400px;
+            animation-delay: -10s;
+        }
+
+        @keyframes sun-glow {
+            0% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
+            100% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.9); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes gentle-sway {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(5px); }
+        }
+
+        @keyframes child-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float-heart {
+            0% { transform: rotate(45deg) translateY(0px); opacity: 1; }
+            50% { transform: rotate(45deg) translateY(-30px); opacity: 0.7; }
+            100% { transform: rotate(45deg) translateY(0px); opacity: 1; }
+        }
+
+        @keyframes message-glow {
+            0% { text-shadow: 3px 3px 6px rgba(0,0,0,0.5); }
+            100% { text-shadow: 3px 3px 15px rgba(255,215,0,0.8); }
+        }
+
+        @keyframes fly {
+            0% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(100px) translateY(-20px); }
+            50% { transform: translateX(200px) translateY(0px); }
+            75% { transform: translateX(300px) translateY(-10px); }
+            100% { transform: translateX(400px) translateY(0px); }
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(100vw); }
+        }
+        .globo-unico {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: subir 12s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.globos {
+    position: relative;
+    width: 120px;
+    height: 150px;
+}
+
+.globo {
+    width: 40px;
+    height: 50px;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.rojo { background: #FF4D4D; top: 0; left: 40px; }
+.azul { background: #4DA6FF; top: 20px; left: 0; }
+.amarillo { background: #FFD700; top: 20px; right: 0; }
+.verde { background: #32CD32; top: 40px; left: 20px; }
+.rosado { background: #FF69B4; top: 40px; right: 20px; }
+
+.cuerda {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    background: #555;
+    transform: translateX(-50%);
+}
+
+.cartel {
+    margin-top: 10px;
+    background: #FF69B4;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    animation: flotar 2s ease-in-out infinite alternate;
+    text-align: center;
+}
+
+@keyframes subir {
+    0% { transform: translateX(-50%) translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translateX(-50%) translateY(-50vh); }
+    100% { transform: translateX(-50%) translateY(-100vh); opacity: 0; }
+}
+
+@keyframes flotar {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+    </style>
+</head>
+<body>
+    <div class="sky"></div>
+    
+    <div class="sun"></div>
+    
+    <div class="clouds">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    
+    <div class="birds">
+        <div class="bird"></div>
+        <div class="bird"></div>
+        <div class="bird"></div>
+    </div>
+    
+    <div class="ground"></div>
+    
+    <div class="family-silhouette">
+        <div class="father"></div>
+        <div class="child"></div>
+    </div>
+    
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+    
+
+    
+    <div class="sub-message">
+       
+    </div>
+    <div class="globo-unico">
+  <div class="globos">
+    <div class="globo rojo"></div>
+    <div class="globo azul"></div>
+    <div class="globo amarillo"></div>
+    <div class="globo verde"></div>
+    <div class="globo rosado"></div>
+    <div class="cuerda"></div>
+  </div>
+  <div class="cartel">Mi padre no me dio riquezas, ni autos, ni ropa de marca...
+pero me dio algo mucho más valioso:
+me enseñó a luchar, a ser honesto y a nunca rendirme.🌟</div>
+</div>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
